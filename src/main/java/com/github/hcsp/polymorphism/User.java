@@ -42,6 +42,9 @@ public class User {
                 names.add(user.getName());
             }
 
+            public List<String> getNames() {
+                return names;
+            }
         });
 
 
