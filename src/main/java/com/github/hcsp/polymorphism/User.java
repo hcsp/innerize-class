@@ -45,7 +45,6 @@ public class User {
         });
         return names;
     }
-
     public static void main(String[] args) {
         List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
         System.out.println(collectNames(users));
