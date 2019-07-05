@@ -29,10 +29,14 @@ public class User {
     // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
         List<String> collectedNames = new ArrayList<>();
-        users.forEach((User user)->{
-            collectedNames.add(user.name);
+        users.forEach(new Consumer<User>(){
+            @Override
+            public void accept(User user) {
+                collectedNames.add(user.name);
+            }
         });
         return collectedNames;
+
     }
 
     public static void main(String[] args) {
