@@ -33,7 +33,7 @@ public class User {
     // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
         final List<String> names = new ArrayList<>();
-        users.forEach(new Consumer<>() {
+        users.forEach(new Consumer<User>() {
 
             /**
              * Performs this operation on the given argument.
