@@ -1,6 +1,7 @@
 package com.github.hcsp.polymorphism;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -32,5 +33,11 @@ import java.util.function.Consumer;
           users.forEach(consumer);//forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。
           return userNames;
           }
-      }
+
+    public static void main(String[] args) {
+        List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
+        System.out.println(collectNames(users));
+    }
+}
+
 
