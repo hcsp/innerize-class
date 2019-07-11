@@ -1,43 +1,38 @@
 package com.github.hcsp.polymorphism;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
-//实现用匿名内部类为对象传递参数
-  public class User{
-       private  int age;
-       private String name;
+public class User {
+    /** 用户ID，数据库主键，全局唯一 */
+    private final Integer id;
 
-      public User(int age,String name) {
-          this.age=age;
-          this.name = name;
-      }
+    /** 用户名 */
+    private final String name;
+
+    public User(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
-          return name;
-      }
+        return name;
+    }
 
+    // 这里使用了一个NameCollector类，请尝试将它改写成匿名内部类
+    // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
-          List<String> userNames = new ArrayList<>();
-          Consumer consumer = new Consumer<User>() {
-              @Override
-              public void accept(User user) {
-                  userNames.add(user.getName());
-              }
-              public List<String> getNames() {
-                  return userNames;
-              }
-          };
-          users.forEach(consumer);//forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。
-          return userNames;
-          }
+        NameCollector collector = new NameCollector();
+        users.forEach(collector);
+        return collector.getNames();
+    }
 
     public static void main(String[] args) {
         List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
         System.out.println(collectNames(users));
     }
 }
-
-
