@@ -1,9 +1,7 @@
 package com.github.hcsp.polymorphism;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class User {
     /** 用户ID，数据库主键，全局唯一 */
@@ -29,22 +27,12 @@ public class User {
     // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
         NameCollector collector = new NameCollector();
-//        users.forEach(collector);
-        List<String> names  = new ArrayList<>();
-        users.forEach(new Consumer<User>() {
-            @Override
-            public void accept(User user) {
-                names.add(user.getName());
-            }
-
-        });
-        return names;
+        users.forEach(collector);
+        return collector.getNames();
     }
 
     public static void main(String[] args) {
         List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
         System.out.println(collectNames(users));
     }
-
-
 }
