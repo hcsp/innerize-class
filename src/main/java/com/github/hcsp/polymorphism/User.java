@@ -2,6 +2,7 @@ package com.github.hcsp.polymorphism;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class User {
     /** 用户ID，数据库主键，全局唯一 */
@@ -28,6 +29,13 @@ public class User {
     public static List<String> collectNames(List<User> users) {
         NameCollector collector = new NameCollector();
         users.forEach(collector);
+        new Predicate<Object>(){
+            @Override
+            public boolean test(Object object){
+                return true;
+            }
+
+        };
         return collector.getNames();
     }
 
