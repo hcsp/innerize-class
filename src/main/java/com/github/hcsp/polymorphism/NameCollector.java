@@ -9,7 +9,7 @@ public class NameCollector implements Consumer<User> {
 
     @Override
     public void accept(User user) {
-        names.add(user.getName());
+
     }
 
     public List<String> getNames() {
