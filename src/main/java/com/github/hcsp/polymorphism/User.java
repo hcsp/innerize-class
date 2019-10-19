@@ -29,7 +29,6 @@ public class User {
     // 这里使用了一个NameCollector类，请尝试将它改写成匿名内部类
     // 使得代码更加集中，更加容易阅读
 
-
     public static List<String> collectNames(List<User> users) {
         List<String> collectedName = new ArrayList<String>();
         Consumer<User> collector = new Consumer<User>() {
@@ -46,18 +45,4 @@ public class User {
         List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
         System.out.println(collectNames(users));
     }
-
-//    public static class NameCollector implements Consumer<User> {
-//    }
-     /*   private final List<String> names = new ArrayList<>();
-
-        @Override
-        public void accept(User user) {
-            names.add(user.getName());
-        }
-
-        public List<String> getNames() {
-            return names;
-        }
-    }*/
 }
