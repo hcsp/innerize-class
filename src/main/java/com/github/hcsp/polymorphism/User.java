@@ -33,6 +33,12 @@ public class User {
     public static List<String> collectNames(List<User> users) {
         NameCollector collector = new NameCollector();
         users.forEach(collector);
+        new Predicate<Object>() {
+            @Override
+            public boolean test(Object obk) {
+                return true;
+            }
+        };
         return collector.getNames();
     }
 
