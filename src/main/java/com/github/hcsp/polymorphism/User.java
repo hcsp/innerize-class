@@ -2,12 +2,17 @@ package com.github.hcsp.polymorphism;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class User {
-    /** 用户ID，数据库主键，全局唯一 */
+    /**
+     * 用户ID，数据库主键，全局唯一
+     */
     private final Integer id;
 
-    /** 用户名 */
+    /**
+     * 用户名
+     */
     private final String name;
 
     public User(Integer id, String name) {
