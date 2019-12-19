@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class NameCollector implements Consumer<User> {
+public class NameCollector implements Consumer<User> {
     private final List<String> names = new ArrayList<>();
 
     @Override
