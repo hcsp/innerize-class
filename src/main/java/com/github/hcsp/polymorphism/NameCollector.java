@@ -1,4 +1,4 @@
-/*package com.github.hcsp.polymorphism;
+package com.github.hcsp.polymorphism;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,4 +15,4 @@ public class NameCollector implements Consumer<User> {
     public List<String> getNames() {
         return names;
     }
-}*/
+}
