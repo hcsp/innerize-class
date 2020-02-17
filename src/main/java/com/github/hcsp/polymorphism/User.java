@@ -35,17 +35,15 @@ public class User {
     public static List<String> collectNames(List<User> users) {
         List<String> names = new ArrayList<>();
         users.forEach(new Consumer<User>() {
+            @Override
+            public void accept(User user) {
+                names.add(user.getName());
+            }
 
-                          @Override
-                          public void accept(User user) {
-                              names.add(user.getName());
-                          }
-
-                          public List<String> getNames() {
-                              return names;
-                          }
-                      }
-        );
+            public List<String> getNames() {
+                return names;
+            }
+        });
         return names;
     }
 
