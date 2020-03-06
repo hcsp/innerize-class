@@ -38,12 +38,8 @@ public class User {
 
         List<String> list = new ArrayList<>();
 
-        new Consumer<User>() {
-            @Override
-            public void accept(User user) {
-                list.add(user.getName());
-            }
-        };
+        users.forEach(user -> list.add(user.getName()));
+
         return list;
 
     }
