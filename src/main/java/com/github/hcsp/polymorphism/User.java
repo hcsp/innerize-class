@@ -31,6 +31,7 @@ public class User {
         /*NameCollector collector = new NameCollector();
         users.forEach(collector);
         return collector.getNames();*/
+
         List<String> names = new ArrayList<>();
         users.forEach(new Consumer<User>() {
             @Override
