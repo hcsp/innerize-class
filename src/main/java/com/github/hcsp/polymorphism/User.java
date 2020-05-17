@@ -3,6 +3,7 @@ package com.github.hcsp.polymorphism;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class User {
     /** 用户ID，数据库主键，全局唯一 */
@@ -25,13 +26,11 @@ public class User {
     }
 
     public static List<String> collectNames(List<User> users) {
-        List<String> names;
-        List<String> list;
-        list = new ArrayList<>();
-        users.stream().map(user -> user.name).forEachOrdered(list::add);
-        names = list;
+        List<String> names = new ArrayList<>();
+        users.forEach(user -> names.add(user.getName()));
         return names;
     }
+
 
     public static void main(String[] args) {
         List<User> users = Arrays.asList(new User(1, "a"), new User(2, "b"));
