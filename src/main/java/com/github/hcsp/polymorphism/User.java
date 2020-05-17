@@ -1,5 +1,6 @@
 package com.github.hcsp.polymorphism;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class User {
         return name;
     }
 
-    // 这里使用了一个NameCollector类，请尝试将它改写成匿名内部类
-    // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
-        NameCollector collector = new NameCollector();
-        users.forEach(collector);
-        return collector.getNames();
+        List<String> names;
+        List<String> list;
+        list = new ArrayList<>();
+        users.stream().map(user -> user.name).forEachOrdered(list::add);
+        names = list;
+        return names;
     }
 
     public static void main(String[] args) {
