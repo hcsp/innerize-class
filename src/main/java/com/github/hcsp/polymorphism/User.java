@@ -28,10 +28,15 @@ public class User {
     // 这里使用了一个NameCollector类，请尝试将它改写成匿名内部类
     // 使得代码更加集中，更加容易阅读
     public static List<String> collectNames(List<User> users) {
-       List<String> nameList = new ArrayList<>();
+        List<String> nameList = new ArrayList<>();
         //NameCollector collector = new NameCollector();
-        users.forEach(user -> nameList.add(user.getName()));
-        return nameList;
+        users.forEach(new Consumer<User>() {
+            @Override
+            public void accept(User user) {
+                nameList.add(user.getName());
+            }
+        });
+                return nameList;
     }
 
     public static void main(String[] args) {
