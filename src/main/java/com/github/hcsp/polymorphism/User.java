@@ -30,12 +30,7 @@ public class User {
     public static List<String> collectNames(List<User> users) {
        List<String> nameList = new ArrayList<>();
         //NameCollector collector = new NameCollector();
-        users.forEach(new Consumer<User>() {
-            @Override
-            public void accept(User user) {
-                nameList.add(user.getName());
-            }
-        });
+        users.forEach(user -> nameList.add(user.getName()));
         return nameList;
     }
 
