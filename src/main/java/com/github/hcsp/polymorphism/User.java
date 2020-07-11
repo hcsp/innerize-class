@@ -32,6 +32,7 @@ public class User {
         users.forEach(new Consumer<User>() {
             @Override
             public void accept(User user) {
+                names.add(user.getName());
             }
         });
             return names;
