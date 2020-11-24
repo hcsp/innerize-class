@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class User {
     /**
      * 用户ID，数据库主键，全局唯一
