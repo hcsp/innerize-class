@@ -1,5 +1,6 @@
 package com.github.hcsp.polymorphism;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,6 +30,18 @@ public class User {
         NameCollector collector = new NameCollector();
         users.forEach(collector);
         return collector.getNames();
+        new NameCollector() {
+            private final List<String> names = new ArrayList<>();
+
+            @Override
+            public void accept(User user) {
+                names.add(user.getName());
+            }
+
+            public List<String> getNames() {
+                return names;
+            }
+        };
     }
 
     public static void main(String[] args) {
