@@ -12,7 +12,7 @@ public class NameCollector implements Consumer<User> {
         names.add(user.getName());
     }
 
-    public List<String> getNames(NameCollector nameCollector) {
+    public List<String> getNames() {
         return names;
     }
 }
