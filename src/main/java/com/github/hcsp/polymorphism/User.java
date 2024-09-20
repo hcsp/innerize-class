@@ -27,7 +27,12 @@ public class User {
     // 将 NameCollector 改写为匿名内部类
     public static List<String> collectNames(List<User> users) {
         List<String> names = new ArrayList<>();
-        users.forEach(user -> names.add(user.getName()));
+        users.forEach(new java.util.function.Consumer<User>() {
+            @Override
+            public void accept(User user) {
+                names.add(user.getName());
+            }
+        });
         return names;
     }
 
